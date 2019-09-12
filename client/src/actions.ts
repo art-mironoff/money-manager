@@ -11,7 +11,6 @@ export const addExpense = async (
       category,
       comment
     });
-    debugger;
   } catch (error) {
     console.error('Error: ', error);
   }
@@ -28,7 +27,6 @@ export const addIncome = async (
       category,
       comment
     });
-    debugger;
   } catch (error) {
     console.error('Error: ', error);
   }

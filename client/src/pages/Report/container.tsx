@@ -21,7 +21,7 @@ const ReportPage: React.FC<IProps> = props => {
 
   useEffect(() => {
     dispatch(getList());
-  }, []);
+  }, [dispatch]);
 
   const handleRemove = (id: number): void => {
     dispatch(removeRow(id));
@@ -33,7 +33,7 @@ const ReportPage: React.FC<IProps> = props => {
         dataSource={report.data}
         renderRow={(row, index) => (
           <StyledListItem
-            key={row.id}
+            key={row._id}
             modifier={
               index === report.data.length - 1 ? 'longdivider' : undefined
             }
@@ -42,12 +42,12 @@ const ReportPage: React.FC<IProps> = props => {
               {row.type === 'expense' ? '-' : '+'}
               {row.money}
             </span>
-            - {row.category} - {row.comment}
+            Category: {row.category} Comment: {row.comment}
             <Button
               className="remove-btn"
               modifier="quiet"
               onClick={() => {
-                handleRemove(row.id);
+                handleRemove(row._id);
               }}
             >
               Remove
